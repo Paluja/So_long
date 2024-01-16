@@ -1,49 +1,39 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/09 16:05:55 by pjimenez          #+#    #+#              #
-#    Updated: 2024/01/12 17:01:15 by pjimenez         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME    = SO_LONG
+CFLAGS  = -Wall -Wextra -Werror
+SRC		= main.c src/maps.c
+OBJ		= ${SRC:.c=.o}
+LIBFT = src/libft/libft.a
+INC = -I includes/ 
+MLX = src/MLX42/libmlx42.a
 
-NAME	:= mondongo
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
-LIBMLX	:= MLX42/MLX42.a
+COLOUR_GREEN=\033[0;32m
+COLOUR_END=\033[0m
 
-HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIB 	:= include/so_long.a
-LIBS	:= -ldl -lglfw3 -pthread -lm $(LIBMLX)/libmlx42.a
-LIBFT = include/libft/libft.a
-SRCS	:= $(shell find ./src -iname "*.c")
-OBJS	:= ${SRCS:.c=.o}
+BREW = "/Users/$(USER)/.brew/opt/glfw/lib/"
 
-all: libmlx $(HEADERS) $(NAME)
+all: $(NAME)
 
-libmlx:
-	@$(MAKE) -C $(LIBMLX)
+$(NAME): $(MLX) $(LIBFT) $(OBJ)
+	@gcc $(CFLAGS) $(OBJ) $(MLX) -lglfw -L $(BREW) $(INC) -o $(NAME) $(LIBFT)
+	@echo "$(COLOUR_GREEN)🔥 🔥 Compliling Everything ✅ ✅$(COLOUR_END)"
+
+$(LIBFT):
+	@make -C src/libft
+
+$(MLX):
+	@make -C src/MLX42/
+clean:
+	@rm -rf $(OBJ)
+	@make -C src/MLX42/ clean
+	@make -C src/libft/ clean
+fclean: clean
+	@rm -f $(NAME)
+	@make -C src/MLX42/ fclean
+	@make -C src/libft/ fclean
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+	@gcc $(CFLAGS) -o $@ -c $<
 
-$(NAME): $(OBJS)
-	@cp $(LIBFT) $(LIB)
-	@ar rcs $(LIB) $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) $(LIB)
+re: fclean all
 
-clean:
-	@rm -f $(OBJS)
-	@make -C libft/ clean
-	@$(MAKE) -C $(LIBMLX) clean
-
-fclean: clean
-	@make -C libft/ fclean
-	@rm -f $(NAME)
-	@$(MAKE) -C $(LIBMLX) fclean
-
-re: clean all
-
-.PHONY: all, clean, fclean, re, libmlx
+.PHONY: all clean fclean re mlx42

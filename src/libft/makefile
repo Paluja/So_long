@@ -6,13 +6,15 @@
 #    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:55:21 by pjimenez          #+#    #+#              #
-#    Updated: 2024/01/11 17:16:04 by pjimenez         ###   ########.fr        #
+#    Updated: 2024/01/16 20:15:33 by pjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB = libft.a
 
 PRINTF = Printf/libftprintf.a
+
+GETLINE = get_next_line/get_next_line.a
 
 RM = rm -f
 
@@ -30,13 +32,19 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(LIB)
 
-$(LIB): $(PRINTF) $(OBJS)
+$(PRINTF):
+	make -C Printf/	all
+$(GETLINE):
+	make -C get_next_line/	all
+
+$(LIB): $(PRINTF) $(GETLINE) $(OBJS)
+	@cp $(GETLINE) $(LIB)
 	@cp	$(PRINTF) $(LIB)
 	@ar rcs $(PRINTF) $(OBJS)
-	@ar rcs $(LIB) $(OBJS)	
+	@ar rcs $(GETLINE) $(OBJS)	
+	@ar rcs $(LIB) $(OBJS)
 
-$(PRINTF):
-	make -C Printf/ all
+	
 $(OBJS): $(FILES)
 	@gcc $(FLAGS) -c $(FILES)
 
@@ -44,10 +52,12 @@ $(OBJS): $(FILES)
 	
 clean:
 	make -C Printf/ clean
+	make -C get_next_line/ clean
 	@$(RM) -rf $(OBJS)
 	
 fclean: clean
 	make -C Printf/ fclean
+	make -C get_next_line/ fclean
 	@$(RM) -f $(LIB)
 	
 re: fclean all

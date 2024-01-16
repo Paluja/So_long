@@ -1,1 +1,0 @@
-gcc main.c -Lmlx -lmlx  -o try
