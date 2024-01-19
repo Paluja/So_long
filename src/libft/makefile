@@ -6,7 +6,7 @@
 #    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:55:21 by pjimenez          #+#    #+#              #
-#    Updated: 2024/01/16 20:15:33 by pjimenez         ###   ########.fr        #
+#    Updated: 2024/01/19 11:22:33 by pjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ LIB = libft.a
 
 PRINTF = Printf/libftprintf.a
 
-GETLINE = get_next_line/get_next_line.a
+GNL = get_next_line/get_next_line.a
 
 RM = rm -f
 
@@ -30,18 +30,18 @@ OBJS = $(FILES:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-all: $(LIB)
+all: $(LIB) $(PRINTF) $(GNL)
 
 $(PRINTF):
 	make -C Printf/	all
-$(GETLINE):
+$(GNL):
 	make -C get_next_line/	all
 
-$(LIB): $(PRINTF) $(GETLINE) $(OBJS)
-	@cp $(GETLINE) $(LIB)
+$(LIB): $(PRINTF) $(GNL) $(OBJS)
+	@cp $(GNL) $(LIB)
 	@cp	$(PRINTF) $(LIB)
 	@ar rcs $(PRINTF) $(OBJS)
-	@ar rcs $(GETLINE) $(OBJS)	
+	@ar rcs $(GNL) $(OBJS)	
 	@ar rcs $(LIB) $(OBJS)
 
 	
