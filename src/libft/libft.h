@@ -6,12 +6,13 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:15:15 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/01/11 17:13:22 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:35:17 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # include "Printf/ft_printf.h"
+# include "get_next_line_lib.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>

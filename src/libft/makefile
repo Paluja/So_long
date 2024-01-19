@@ -6,15 +6,13 @@
 #    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 16:55:21 by pjimenez          #+#    #+#              #
-#    Updated: 2024/01/19 11:22:33 by pjimenez         ###   ########.fr        #
+#    Updated: 2024/01/19 16:36:20 by pjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIB = libft.a
 
 PRINTF = Printf/libftprintf.a
-
-GNL = get_next_line/get_next_line.a
 
 RM = rm -f
 
@@ -24,24 +22,22 @@ ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
 ft_strncmp.c ft_strrchr.c ft_bzero.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 ft_atoi.c ft_calloc.c ft_strdup.c ft_strjoin.c ft_substr.c ft_strtrim.c \
 ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c\
-ft_putendl_fd.c ft_putnbr_fd.c
+ft_putendl_fd.c ft_putnbr_fd.c get_next_line.c\
+get_next_line_utils.c
 
 OBJS = $(FILES:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-all: $(LIB) $(PRINTF) $(GNL)
+all: $(LIB) $(PRINTF)
 
 $(PRINTF):
 	make -C Printf/	all
-$(GNL):
-	make -C get_next_line/	all
+
 
 $(LIB): $(PRINTF) $(GNL) $(OBJS)
-	@cp $(GNL) $(LIB)
 	@cp	$(PRINTF) $(LIB)
 	@ar rcs $(PRINTF) $(OBJS)
-	@ar rcs $(GNL) $(OBJS)	
 	@ar rcs $(LIB) $(OBJS)
 
 	
@@ -52,12 +48,10 @@ $(OBJS): $(FILES)
 	
 clean:
 	make -C Printf/ clean
-	make -C get_next_line/ clean
 	@$(RM) -rf $(OBJS)
 	
 fclean: clean
 	make -C Printf/ fclean
-	make -C get_next_line/ fclean
 	@$(RM) -f $(LIB)
 	
 re: fclean all
