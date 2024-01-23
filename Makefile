@@ -1,5 +1,5 @@
 NAME    = SO_LONG
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror -g
 SRC		= main.c src/maps.c
 OBJ		= ${SRC:.c=.o}
 LIBFT = src/libft/libft.a

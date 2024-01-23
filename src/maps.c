@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:59:03 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/01/19 20:32:19 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:14:10 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int chars_ok(const char *buffer)
         if(buffer[i] != '0' && buffer[i] != '1' && buffer[i] != 'C' && buffer[i] != 'E'
         && buffer[i] != 'P' && buffer[i] != '\n')
             return (0);
-        //apartir de aqui separar en otra funcion
         if (buffer[i] == 'P')
             player++;
         else if (buffer[i] == 'E')
@@ -70,16 +69,15 @@ int its_close(char **map)
     int j;
 
     i = 0;
-    // j = 0;
 
     while (map[i])
     {
         j = 0;
-        if (map[i][0] != '1') //BIEN
+        if (map[i][0] != '1')
                 return (0);
         while (map[i][j])
         {
-            if (map[0][j] != '1') //BIEN
+            if (map[0][j] != '1')
                 return (0);
             j++;
         }
@@ -101,22 +99,15 @@ int its_close(char **map)
 void valid_map(char **argv)
 {
     int fd;
-    char buffer[1000];
+    char buffer[1001];
     char **map;
     fd = open(argv[1],O_RDONLY);
 
-    read(fd,buffer,1000);
-
+    buffer[read(fd,buffer,1000)] = 0;
     map = ft_split(buffer,'\n');
-    if (its_close(map))
+    if (its_rectangle(map) && its_close(map) && chars_ok(buffer))
         printf("%s",buffer);
-
-
     // if (chars_ok(buffer))
     //     ft_printf("%s\n",buffer);
-
-
-
-
     // ft_printf("%d\n",its_rectangle(fd));
 }
