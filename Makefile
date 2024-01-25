@@ -1,6 +1,6 @@
 NAME    = SO_LONG
 CFLAGS  = -Wall -Wextra -Werror -g
-SRC		= main.c src/maps.c
+SRC		= main.c src/maps.c src/chars_ok.c src/utils.c
 OBJ		= ${SRC:.c=.o}
 LIBFT = src/libft/libft.a
 INC = -I includes/ 

@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 16:19:29 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/01/25 22:26:35 by pjimenez         ###   ########.fr       */
+/*   Created: 2024/01/25 22:57:42 by pjimenez          #+#    #+#             */
+/*   Updated: 2024/01/25 22:58:47 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/so_long.h"
+#include "../include/so_long.h"
 
-int main(int argc, char **argv)
+void    free_matrix(char **str)
 {
-	t_map	*map;
-	int	x = 0;
-	int	y = 0;
-	map = malloc(sizeof(t_map));
-	if (argc > 1)
-		valid_map(map,argv);
-	while (map->full_map[y])
-    {
-        x = 0;
-        while(map->full_map[y][x])
-        {
-           ft_printf("%c",map->full_map[y][x]);
-            x++;
-        }
-        y++;
-    }
-    free(map);
-	return (0);	
+    int i;
+    
+    i = 0;
+    while (str[i++])
+        free(str[i]);
+    free(str);
 }
-
-
-
