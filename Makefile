@@ -1,6 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/29 12:40:20 by pjimenez          #+#    #+#              #
+#    Updated: 2024/01/30 19:27:13 by pjimenez         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME    = SO_LONG
 CFLAGS  = -Wall -Wextra -Werror -g
-SRC		= main.c src/maps.c src/chars_ok.c src/utils.c
+SRC		= main.c src/map_chars.c src/utils.c src/maps_validations.c src/map_init.c
 OBJ		= ${SRC:.c=.o}
 LIBFT = src/libft/libft.a
 INC = -I includes/ 

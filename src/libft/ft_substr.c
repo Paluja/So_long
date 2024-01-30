@@ -6,13 +6,13 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:41:10 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/06/06 17:06:27 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:17:34 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, int start, int len)
 {
 	char	*cpy;
 	int		i;

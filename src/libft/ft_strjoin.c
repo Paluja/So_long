@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:41:03 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/01/11 17:08:56 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:16:27 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char		*cpy;
-	size_t		i;
-	size_t		full_len;
+	int		i;
+	int		full_len;
 
 	i = 0;
 	full_len = ft_strlen(s1) + ft_strlen(s2);

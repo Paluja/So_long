@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjimenez <pjimenez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:20:08 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/05/09 18:36:28 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:16:12 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strdup(const char *s1)
 {
 	char	*cpy;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	cpy = malloc(ft_strlen(s1) + 1);

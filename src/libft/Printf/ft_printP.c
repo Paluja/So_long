@@ -6,21 +6,21 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:18:08 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/09/23 20:55:40 by pjimenez         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:04:45 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_hexaptr(t_uintptr n, char *base)
+static void	ft_hexaPtr(uintptr_t n, char *base)
 {
 	unsigned int	j;
 
 	j = 0;
 	if (n >= 16)
 	{
-		ft_hexaptr((n / 16), base);
-		ft_hexaptr((n % 16), base);
+		ft_hexaPtr((n / 16), base);
+		ft_hexaPtr((n % 16), base);
 	}
 	else
 	{
@@ -48,7 +48,7 @@ static int	ft_hexalen(uintptr_t n)
 	return (i);
 }
 
-int	ft_printptr(uintptr_t n)
+int	ft_printPtr(uintptr_t n)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ int	ft_printptr(uintptr_t n)
 		i += write(1, "0", 1);
 	else
 	{
-		ft_hexaptr(n, "0123456789abcdef");
+		ft_hexaPtr(n, "0123456789abcdef");
 		i += ft_hexalen(n);
 	}
 	return (i);

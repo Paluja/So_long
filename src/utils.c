@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:57:42 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/01/25 22:58:47 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:40:05 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,22 @@
 
 void    free_matrix(char **str)
 {
-    int i;
-    
-    i = 0;
-    while (str[i++])
-        free(str[i]);
+    char **tmp;
+
+    tmp = str;
+    while (*tmp)
+    {
+        free(*tmp);
+        tmp++;
+    }
     free(str);
 }
+
+// void free_full_map(t_map *map) {
+//     char **temp = map->full_map;
+//     while (*temp) {
+//         free(*temp);
+//         temp++;
+//     }
+//     free(map->full_map);
+// }
