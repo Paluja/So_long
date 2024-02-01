@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:19:29 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/01/30 19:40:27 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:22:30 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,51 @@ char    **read_map(char *argv)
     return(splited_map);
 }
 
+void    close_win(mlx_key_data_t keycode,void   *param)
+{
+    t_map *map;
+    map = param;
+    if (keycode.key == MLX_KEY_ESCAPE && keycode.action == MLX_PRESS)
+    {
+        mlx_terminate(map->mlx);
+        exit(EXIT_SUCCESS);
+    }
+    return ;
+}
+
+
+void    ft_leaks()
+{
+    system("leaks SO_LONG");
+}
+
 int main(int argc, char **argv)
 {
-	t_map	*map;
-
-	map = malloc(sizeof(t_map));
-	if (argc > 1)
+    if (argc > 1)
 	{
+        t_map *map;
+        map = malloc(sizeof(t_map));
         init_map(map,argv);
-        
         if (valid_map(map))
         {
-            ft_printf("Width: %d\n",map->width);
-            ft_printf("Height: %d\n",map->height);
-            ft_printf("Objetos: %d\n",map->obj);
+            int i = 0;
+            while (i <= map->obj)
+            {
+                ft_printf("X: %d, Y: %d\n",map->obj_x[i],map->obj_y[i]);
+                i++;
+            }
+            
         }
-        free_matrix(map->full_map);
-        free_matrix(map->ops_map);
-        free(map);
-        
-    }
-    
-	return (0);	
+        map->mlx = mlx_init(map->width * 64, map->height * 64, "Test", true);
+
+        atexit(ft_leaks);
+        load_map(map);
+        draw_map(map);
+        mlx_key_hook(map->mlx, &close_win, map);
+	    mlx_loop(map->mlx);
+        free_things(map);
+    }       
+
+
+	return (EXIT_SUCCESS);
 }
