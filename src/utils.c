@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:57:42 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/01 17:00:34 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:46:52 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void    free_things(t_map *map)
     free(map->obj_x);
     free(map->obj_y);
     free(map);
-	mlx_terminate(map->mlx);
 }
 
 

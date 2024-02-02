@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:59:03 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/01 22:37:11 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:54:20 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,11 +133,8 @@ int objects_ok(t_map *map)
 
 int valid_map(t_map *map)
 {
-    int i = 0;
     if(its_close(map) && its_rectangle(map) && path_ok(map))
     {
-        while(map->ops_map[++i])
-            ft_printf("%s \n" ,map->ops_map[i]);
         if (objects_ok(map))
             return(1);
     }

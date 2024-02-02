@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:19:29 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/01 18:22:30 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:11:20 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void    close_win(mlx_key_data_t keycode,void   *param)
     if (keycode.key == MLX_KEY_ESCAPE && keycode.action == MLX_PRESS)
     {
         mlx_terminate(map->mlx);
+        free_things(map);
         exit(EXIT_SUCCESS);
     }
     return ;
@@ -68,16 +69,17 @@ int main(int argc, char **argv)
                 ft_printf("X: %d, Y: %d\n",map->obj_x[i],map->obj_y[i]);
                 i++;
             }
-            
-        }
-        map->mlx = mlx_init(map->width * 64, map->height * 64, "Test", true);
+            map->mlx = mlx_init(map->width * 64, map->height * 64, "Test", true);
 
-        atexit(ft_leaks);
-        load_map(map);
-        draw_map(map);
-        mlx_key_hook(map->mlx, &close_win, map);
-	    mlx_loop(map->mlx);
-        free_things(map);
+            atexit(ft_leaks);
+            load_map(map);
+            draw_map(map);
+            
+            mlx_key_hook(map->mlx, &move, map);
+            // mlx_key_hook(map->mlx, &close_win, map);
+            mlx_loop(map->mlx);
+        }
+            free_things(map);
     }       
 
 

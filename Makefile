@@ -6,13 +6,13 @@
 #    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 12:40:20 by pjimenez          #+#    #+#              #
-#    Updated: 2024/01/31 19:07:19 by pjimenez         ###   ########.fr        #
+#    Updated: 2024/02/02 12:53:15 by pjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = SO_LONG
 CFLAGS  = -Wall -Wextra -Werror -g
-SRC		= main.c src/map_chars.c src/utils.c src/maps_validations.c  src/map_init.c src/load_textures.c
+SRC		= main.c src/map_chars.c src/utils.c src/maps_validations.c  src/map_init.c src/load_textures.c src/moves.c
 OBJ		= ${SRC:.c=.o}
 LIBFT = src/libft/libft.a
 INC = -I includes/ 
@@ -26,7 +26,7 @@ BREW = "/Users/$(USER)/.brew/opt/glfw/lib/"
 all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJ)
-	@gcc $(CFLAGS) $(OBJ) $(MLX) -lglfw -L $(BREW) $(INC) -o $(NAME) $(LIBFT)
+	@gcc $(CFLAGS) $(OBJ) $(MLX) -lglfw -L $(BREW) $(INC) -g -o $(NAME) $(LIBFT)
 	@echo "$(COLOUR_GREEN)🔥 🔥 Compliling Everything ✅ ✅$(COLOUR_END)"
 
 $(LIBFT):

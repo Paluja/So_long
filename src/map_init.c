@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:54:55 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/01 16:54:42 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:54:10 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void get_objects(t_map *map)
     
     x = 0;
     y = 0;
+    map->obj = 0;
     while (map->full_map[++y])
     {
         x = 0;
