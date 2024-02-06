@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 14:16:40 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/02 17:59:46 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:42:53 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct  s_map
     int     player;
     int     exit;
     int     obj;
+    int     moves;
     mlx_t   *mlx;
     mlx_t   *win;
     mlx_image_t *img_player;
@@ -61,4 +62,6 @@ void    draw_map(t_map  *map);
 void    free_things(t_map *map);
 void move(mlx_key_data_t keycode,void *param);
 void draw_player(t_map *map, int y, int x);
+void    finish_game(t_map *map);
+int	objects_ok(t_map *map);
 #endif

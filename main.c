@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:19:29 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/02 18:11:20 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:44:51 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,22 @@ char    **read_map(char *argv)
     return(splited_map);
 }
 
-void    close_win(mlx_key_data_t keycode,void   *param)
-{
-    t_map *map;
-    map = param;
-    if (keycode.key == MLX_KEY_ESCAPE && keycode.action == MLX_PRESS)
-    {
-        mlx_terminate(map->mlx);
-        free_things(map);
-        exit(EXIT_SUCCESS);
-    }
-    return ;
-}
 
+int its_ber(char *file)
+{
+    int i;
+
+    i = ft_strlen(file);
+    if (file[i - 1] != 'r')
+        return (0);
+    else if (file[i - 2] != 'e')
+        return (0);
+    else if (file[i - 3] != 'b')
+        return (0);
+    else if (file[i - 4] != '.')
+        return (0);
+    return (1);
+}
 
 void    ft_leaks()
 {
@@ -59,16 +62,20 @@ int main(int argc, char **argv)
     if (argc > 1)
 	{
         t_map *map;
-        map = malloc(sizeof(t_map));
-        init_map(map,argv);
+        map = NULL;
+        if (its_ber(argv[1]))
+        {
+            map = malloc(sizeof(t_map));
+            init_map(map,argv);
+        }
+        else
+        {
+            perror("Extension o archivo incorrecta");
+            exit(1);
+        }
         if (valid_map(map))
         {
             int i = 0;
-            while (i <= map->obj)
-            {
-                ft_printf("X: %d, Y: %d\n",map->obj_x[i],map->obj_y[i]);
-                i++;
-            }
             map->mlx = mlx_init(map->width * 64, map->height * 64, "Test", true);
 
             atexit(ft_leaks);
@@ -76,11 +83,10 @@ int main(int argc, char **argv)
             draw_map(map);
             
             mlx_key_hook(map->mlx, &move, map);
-            // mlx_key_hook(map->mlx, &close_win, map);
             mlx_loop(map->mlx);
         }
             free_things(map);
-    }       
+    }
 
 
 	return (EXIT_SUCCESS);
