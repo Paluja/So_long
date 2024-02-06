@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 14:16:40 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/05 18:42:53 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:40:52 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,8 @@ void move(mlx_key_data_t keycode,void *param);
 void draw_player(t_map *map, int y, int x);
 void    finish_game(t_map *map);
 int	objects_ok(t_map *map);
+void	execute_game(t_map *map);
+void	draw_path(t_map *map);
+void eliminate_player(t_map *map);
+void load_player(t_map *map);
 #endif

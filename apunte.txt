@@ -1,8 +1,0 @@
-Para comprobar que hay un camino, comprobar que en todos los movimientos del perosnaje
-al menos hay una posicion x+1 o y+1 que no sea un 1
-
-para comprobar que sea rectangular comprogar con getnextline que todas las lineas tienen el mismo len 
-que la primera y comprobar que la cantidad de lineas es diferente al len de la linea
-
-para comprobar que esta rodeado de muros comprobar que todas las lineas menos la ultima y primera
-su primer caracter sea 1 y el que este antes del salto de linea sea un 1 tambien

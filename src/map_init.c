@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:54:55 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/05 18:48:23 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:05:12 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	init_map(t_map *map, char **argv)
 {
 	map->full_map = read_map(argv[1]);
 	map->ops_map = read_map(argv[1]);
+	map->moves = 1;
 	gets_wdith_height(map);
 	get_player_pos(map);
 	get_exit_pos(map);

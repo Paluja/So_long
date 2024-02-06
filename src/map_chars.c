@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:55:30 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/05 18:51:06 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:07:17 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	objects_ok(t_map *map)
 
 int	chars_ok(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

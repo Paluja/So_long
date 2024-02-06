@@ -6,7 +6,7 @@
 #    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 12:40:20 by pjimenez          #+#    #+#              #
-#    Updated: 2024/02/04 05:50:00 by pjimenez         ###   ########.fr        #
+#    Updated: 2024/02/06 15:13:38 by pjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ BREW = "/Users/$(USER)/.brew/opt/glfw/lib/"
 all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJ)
-	# @gcc $(CFLAGS) $(OBJ) $(MLX) -lglfw -L $(BREW) $(INC) -g -o $(NAME) $(LIBFT)
-	@gcc $(CFLAGS) $(OBJ) $(MLX) $(LIBFT) -Iinclude -ldl -lglfw -pthread -lm -o $(NAME)
+	@gcc $(CFLAGS) $(OBJ) $(MLX) -lglfw -L $(BREW) $(INC) -g -o $(NAME) $(LIBFT)
+	# @gcc $(CFLAGS) $(OBJ) $(MLX) $(LIBFT) -Iinclude -ldl -lglfw -pthread -lm -o $(NAME)
 	@echo "$(COLOUR_GREEN)🔥 🔥 Compliling Everything ✅ ✅$(COLOUR_END)"
 
 $(LIBFT):

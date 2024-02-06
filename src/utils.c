@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:57:42 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/05 18:49:57 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:09:22 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,20 @@ void	free_matrix(char **str)
 
 void	finish_game(t_map *map)
 {
-	ft_printf("¡Ganaste!, Ahora eres un Goblin libre de impuestos\n");
+	ft_printf("¡LLegaste a Andorra!, elusion fiscal conseguida \n");
 	mlx_terminate(map->mlx);
 	free_things(map);
+	exit(EXIT_SUCCESS);
+}
+
+void	execute_game(t_map *map)
+{
+	map->mlx = mlx_init(map->width * 64, map->height * 64, "Test",
+			true);
+	load_map(map);
+	draw_map(map);
+	mlx_key_hook(map->mlx, &move, map);
+	mlx_loop(map->mlx);
 }
 
 void	free_things(t_map *map)
