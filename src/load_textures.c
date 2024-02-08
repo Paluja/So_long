@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:31:34 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/08 15:58:48 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/08 16:00:20 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,7 @@ void	draw_map(t_map *map)
 
 void	draw_player(t_map *map, int y, int x)
 {
-	int i;
-	int j;
 
-	i = 0;
-	j = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (j < map->width)
-		{
-			if (map->full_map[i][j] == '0')
-				mlx_image_to_window(map->mlx, map->img_path, x * 64, y * 64);
-			j++;
-		}
-		i++;
-	}
 	mlx_delete_image(map->mlx,map->img_player);
 	if(map->full_map[y][x] == 'P')
 	{
@@ -87,6 +72,8 @@ void	draw_player(t_map *map, int y, int x)
 		mlx_image_to_window(map->mlx, map->img_player, map->player_x * 64,
 			map->player_y * 64);
 	}
+	else if (map->full_map[y][x] == '0')
+			mlx_image_to_window(map->mlx, map->img_path, x * 64, y * 64);
 	map->player_x = x;
 	map->player_y = y;
 }

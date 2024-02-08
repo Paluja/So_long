@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:59 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/07 17:38:15 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/08 16:01:13 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	up_move(t_map *map)
 			&& map->obj == 0)
 			finish_game(map);
 		
+		draw_player(map,map->player_y,map->player_x);
 		map->player_y--;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
@@ -59,6 +60,7 @@ void	down_move(t_map *map)
 			&& map->obj == 0)
 			finish_game(map);
 		
+		draw_player(map,map->player_y,map->player_x);
 		map->player_y++;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
@@ -91,6 +93,7 @@ void	right_move(t_map *map)
 			&& map->obj == 0)
 			finish_game(map);
 		
+		draw_player(map,map->player_y,map->player_x);
 		map->player_x++;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
@@ -122,6 +125,7 @@ void	left_move(t_map *map)
 			&& map->obj == 0)
 			finish_game(map);
 		
+		draw_player(map,map->player_y,map->player_x);
 		map->player_x--;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
