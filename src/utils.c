@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:57:42 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/06 16:09:22 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:23:41 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	finish_game(t_map *map)
 
 void	execute_game(t_map *map)
 {
-	map->mlx = mlx_init(map->width * 64, map->height * 64, "Test",
+	map->mlx = mlx_init(map->width * 64, map->height * 64, "Gombling",
 			true);
 	load_map(map);
 	draw_map(map);

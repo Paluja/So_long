@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:19:29 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/06 16:13:01 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:19:25 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	its_ber(char *file)
 	return (1);
 }
 
-// void    ft_leaks()
-// {
-//     system("leaks SO_LONG");
-// }
+void    ft_leaks()
+{
+    system("leaks SO_LONG");
+}
 
 int	main(int argc, char **argv)
 {
@@ -80,5 +80,8 @@ int	main(int argc, char **argv)
 			ft_printf("Mapa incorrecto\n");
 		free_things(map);
 	}
+	else
+		ft_printf("No has introducido ningun mapa");
+	ft_leaks();
 	return (EXIT_SUCCESS);
 }

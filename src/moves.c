@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:59 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/08 16:01:13 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:20:28 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,11 @@ void	up_move(t_map *map)
 		if (map->full_map[map->player_y - 1][map->player_x] == 'E'
 			&& map->obj == 0)
 			finish_game(map);
-		
-		draw_player(map,map->player_y,map->player_x);
+		draw_player(map, map->player_y, map->player_x);
 		map->player_y--;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
-		draw_player(map,map->player_y,map->player_x);
-		draw_path(map);
-	int	y;
-
-	y = 0;
-	while (map->full_map[y])
-	{
-		ft_printf("%s\n",map->full_map[y]);
-		y++;
-	}
+		draw_player(map, map->player_y, map->player_x);
 	}
 }
 
@@ -53,27 +43,16 @@ void	down_move(t_map *map)
 		map->full_map[map->player_y][map->player_x] = '0';
 		if (map->full_map[map->player_y + 1][map->player_x] == 'C')
 		{
-
 			map->obj--;
 		}
 		if (map->full_map[map->player_y + 1][map->player_x] == 'E'
 			&& map->obj == 0)
 			finish_game(map);
-		
-		draw_player(map,map->player_y,map->player_x);
+		draw_player(map, map->player_y, map->player_x);
 		map->player_y++;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
-		draw_player(map,map->player_y,map->player_x);
-		draw_path(map);
-	int	y;
-
-	y = 0;
-	while (map->full_map[y])
-	{
-		ft_printf("%s\n",map->full_map[y]);
-		y++;
-	}
+		draw_player(map, map->player_y, map->player_x);
 	}
 }
 
@@ -86,27 +65,16 @@ void	right_move(t_map *map)
 		map->full_map[map->player_y][map->player_x] = '0';
 		if (map->full_map[map->player_y][map->player_x + 1] == 'C')
 		{
-
 			map->obj--;
 		}
 		if (map->full_map[map->player_y][map->player_x + 1] == 'E'
 			&& map->obj == 0)
 			finish_game(map);
-		
-		draw_player(map,map->player_y,map->player_x);
+		draw_player(map, map->player_y, map->player_x);
 		map->player_x++;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
-		draw_player(map,map->player_y,map->player_x);
-		draw_path(map);
-	int	y;
-
-	y = 0;
-	while (map->full_map[y])
-	{
-		ft_printf("%s\n",map->full_map[y]);
-		y++;
-	}
+		draw_player(map, map->player_y, map->player_x);
 	}
 }
 
@@ -124,25 +92,13 @@ void	left_move(t_map *map)
 		if (map->full_map[map->player_y][map->player_x - 1] == 'E'
 			&& map->obj == 0)
 			finish_game(map);
-		
-		draw_player(map,map->player_y,map->player_x);
+		draw_player(map, map->player_y, map->player_x);
 		map->player_x--;
 		map->full_map[map->player_y][map->player_x] = 'P';
 		ft_printf("Moves: %d\n", map->moves++);
-		draw_player(map,map->player_y,map->player_x);
-		draw_path(map);
-	int	y;
-
-	y = 0;
-	while (map->full_map[y])
-	{
-		ft_printf("%s\n",map->full_map[y]);
-		y++;
-	}
+		draw_player(map, map->player_y, map->player_x);
 	}
 }
-
-
 
 void	move(mlx_key_data_t keycode, void *param)
 {
