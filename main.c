@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:19:29 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/14 13:19:25 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:05:34 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	**read_map(char *argv)
 	splited_map = ft_split(map, '\n');
 	if (!chars_ok(splited_map) || !items_ok(map))
 	{
-		ft_printf("Caracteres del mapa incorrectos\n");
+		ft_printf("Mapa incorrecto\n");
 		free_matrix(splited_map);
 		exit(1);
 	}
@@ -52,10 +52,10 @@ int	its_ber(char *file)
 	return (1);
 }
 
-void    ft_leaks()
-{
-    system("leaks SO_LONG");
-}
+// void    ft_leaks()
+// {
+//     system("leaks -q SO_LONG");
+// }
 
 int	main(int argc, char **argv)
 {
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 		}
 		else
 		{
-			perror("Extension o archivo incorrecta");
+			ft_printf("Extension de archivo incorrecto\n");
 			exit(1);
 		}
 		if (valid_map(map))
@@ -82,6 +82,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_printf("No has introducido ningun mapa");
-	ft_leaks();
 	return (EXIT_SUCCESS);
 }

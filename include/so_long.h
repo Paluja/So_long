@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 14:16:40 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/13 16:02:47 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:02:12 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ void			finish_game(t_map *map);
 int				objects_ok(t_map *map);
 void			execute_game(t_map *map);
 void			load_player(t_map *map);
+void			load_exit(t_map *map, int x, int y);
 #endif

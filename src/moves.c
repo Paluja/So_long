@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:22:59 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/13 16:20:28 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:17:53 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	up_move(t_map *map)
 {
 	if (map->full_map[map->player_y - 1][map->player_x] != '1'
-		&& (map->full_map[map->player_y][map->player_x - 1] != 'E'
+		&& (map->full_map[map->player_y - 1][map->player_x] != 'E'
 			|| map->obj == 0))
 	{
 		map->full_map[map->player_y][map->player_x] = '0';
@@ -37,7 +37,7 @@ void	up_move(t_map *map)
 void	down_move(t_map *map)
 {
 	if (map->full_map[map->player_y + 1][map->player_x] != '1'
-		&& (map->full_map[map->player_y][map->player_x - 1] != 'E'
+		&& (map->full_map[map->player_y + 1][map->player_x] != 'E'
 			|| map->obj == 0))
 	{
 		map->full_map[map->player_y][map->player_x] = '0';

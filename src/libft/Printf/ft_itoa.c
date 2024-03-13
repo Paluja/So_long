@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:21:28 by pjimenez          #+#    #+#             */
-/*   Updated: 2023/06/22 03:50:22 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:41:51 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	nlength(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	size_t	len;
+	int		len;
 	long	ln;
 
 	ln = (long)n;

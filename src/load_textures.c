@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:31:34 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/14 13:17:44 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:01:22 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ void	draw_map(t_map *map)
 				mlx_image_to_window(map->mlx, map->img_object, x * 64, y * 64);
 			else if (map->full_map[y][x] == 'E')
 			{
-				map->exit_x = x;
-				map->exit_y = y;
-				mlx_image_to_window(map->mlx, map->img_exit, x * 64, y * 64);
+				load_exit(map, x, y);
 			}
 		}
 	}

@@ -6,14 +6,14 @@
 #    By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 12:40:20 by pjimenez          #+#    #+#              #
-#    Updated: 2024/02/13 16:17:30 by pjimenez         ###   ########.fr        #
+#    Updated: 2024/02/23 10:52:35 by pjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = SO_LONG
+NAME    = so_long
 CFLAGS  = -Wall -Wextra -Werror -g
 SRC		= main.c src/map_chars.c src/utils.c src/maps_validations.c \
-		src/map_init.c src/load_textures.c src/moves.c
+		src/map_init.c src/load_textures.c src/moves.c src/execute_free.c
 OBJ		= ${SRC:.c=.o}
 LIBFT = src/libft/libft.a
 INC = -I includes/ 

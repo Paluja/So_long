@@ -6,7 +6,7 @@
 /*   By: pjimenez <pjimenez@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:57:42 by pjimenez          #+#    #+#             */
-/*   Updated: 2024/02/09 14:23:41 by pjimenez         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:01:47 by pjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,9 @@ void	finish_game(t_map *map)
 	exit(EXIT_SUCCESS);
 }
 
-void	execute_game(t_map *map)
+void	load_exit(t_map *map, int x, int y)
 {
-	map->mlx = mlx_init(map->width * 64, map->height * 64, "Gombling",
-			true);
-	load_map(map);
-	draw_map(map);
-	mlx_key_hook(map->mlx, &move, map);
-	mlx_loop(map->mlx);
-}
-
-void	free_things(t_map *map)
-{
-	free_matrix(map->full_map);
-	free_matrix(map->ops_map);
-	free(map->obj_x);
-	free(map->obj_y);
-	free(map);
+	map->exit_x = x;
+	map->exit_y = y;
+	mlx_image_to_window(map->mlx, map->img_exit, x * 64, y * 64);
 }
